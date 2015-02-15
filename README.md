@@ -15,6 +15,13 @@ http://ecms.io
 @param float inc		The increment value to match to 
 
 ### Examples:
-    $("#foo").ecmsNumberFormat();					// Defaualt formatting, no decimals, increment by one.
-    $("#foo").ecmsNumberFormat(null,null,2,0.25); 	// No min or max, fix to two decimals and round to multiples of 0.25.
-    $("#foo").ecmsNumberFormat(1000,2000);			// Enforce a minimum of 1000 and a maximum of 2000, with no decimals, and increment by one.
+```
+// Defaualt formatting, no decimals, increment by one.
+$("#foo").ecmsNumberFormat();					
+    
+// No min or max, fix to two decimals and round to multiples of 0.25.
+$("#foo").ecmsNumberFormat(null,null,2,0.25); 	
+
+// Enforce a minimum of 1000 and a maximum of 2000, with no decimals, and increment by one.
+$("#foo").ecmsNumberFormat(1000,2000);
+```
