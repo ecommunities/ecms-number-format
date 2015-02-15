@@ -3,9 +3,11 @@ jQuery Plugin for Input Field Number Formatting
 
 ----
 Author: Kevin Farley / eCommunities
+
 MIT license: http://www.opensource.org/licenses/mit-license.php
 
 http://github.com/ecommunities/ecmsNumberFormat
+
 http://ecms.io
 
 - @method .ecmsNumberFormat( [min = null], [max = null], [dec = 0], [inc = 1] )
