@@ -3,6 +3,7 @@ jQuery Plugin for Input Field Number Formatting
 
 ----
 Author: Kevin Farley / eCommunities / http://ecms.io
+
 MIT license: http://www.opensource.org/licenses/mit-license.php
 
 http://github.com/ecommunities/ecmsNumberFormat
