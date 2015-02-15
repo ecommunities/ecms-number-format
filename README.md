@@ -8,11 +8,11 @@ MIT license: http://www.opensource.org/licenses/mit-license.php
 http://github.com/ecommunities/ecmsNumberFormat
 http://ecms.io
 
-@method .ecmsNumberFormat( [min = null], [max = null], [dec = 0], [inc = 1] )
-@param float|null min	The minimum value to allow
-@param float|null max	The maximum value to allow
-@param int dec 			The number of decimal places to fix the value to
-@param float inc		The increment value to match to 
+- @method .ecmsNumberFormat( [min = null], [max = null], [dec = 0], [inc = 1] )
+- @param float|null min	The minimum value to allow
+- @param float|null max	The maximum value to allow
+- @param int dec The number of decimal places to fix the value to
+- @param float inc The increment value to match to 
 
 ### Examples:
 ```
