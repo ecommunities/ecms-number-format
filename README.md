@@ -2,13 +2,10 @@
 jQuery Plugin for Input Field Number Formatting
 
 ----
-Author: Kevin Farley / eCommunities
-
+Author: Kevin Farley / eCommunities / http://ecms.io
 MIT license: http://www.opensource.org/licenses/mit-license.php
 
 http://github.com/ecommunities/ecmsNumberFormat
-
-http://ecms.io
 
 - @method .ecmsNumberFormat( [min = null], [max = null], [dec = 0], [inc = 1] )
 - @param float|null min	The minimum value to allow
