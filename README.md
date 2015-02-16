@@ -30,7 +30,7 @@ var numOpts = { min:1000, max:2000, dec:4, inc:0.0025, valid:'valid-class', inva
 
 ### Standard Declaration:
 ```
-$('#foo').on('keyup paste change', function() { $(this).ecmsNumberValidate(numOpts); });".
+$('#foo').on('keyup paste change', function() { $(this).ecmsNumberValidate(numOpts); });
 $('#foo').on('blur', function() { $(this).ecmsNumberFormat(numOpts); }).blur();
 ```
 
