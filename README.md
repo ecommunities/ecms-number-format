@@ -6,9 +6,10 @@ Author: Kevin Farley / eCommunities / [http://ecms.io]
 
 GitHub: [http://github.com/ecommunities/ecmsNumberFormat]
 
-This plugin allows you to provide visual validation of a numeric input field (input, number) via addition/removal of classes both during editing, and after leaving the field.  In the standard declaration below, we 
-demonstrate how you can validated against a variety of criteria without impeding a users ability to enter data in their own way, and then force the field to update to the closest valid data upon leaving focus.  Criteria 
-currently include: **_min_**imum value, **_max_**imum value, **_dec_**imal precision, and **_inc_**rement, but the to-do's include the ability to add additional filters via Regex strings, feel free to lend a hand!
+This plugin allows you to provide visual validation of a numeric input field (input, number) via addition/removal of classes both during editing, and after leaving the field.  In the *standard declaration* below, we 
+demonstrate how you can validate against a variety of criteria without impeding a users ability to enter data in their own way, and then force the field to update to the closest valid value upon losing focus.  Criteria 
+currently include: **_min_**imum value, **_max_**imum value, **_dec_**imal precision, and **_inc_**rement, but the to-do's include the ability to add additional filters via **Regex** strings, feel free to fork and PR 
+to lend a hand!
 
 ### Configuration Parameters
 - @param float|null **min** *The minimum value to allow*
