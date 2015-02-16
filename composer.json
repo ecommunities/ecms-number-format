@@ -1,11 +1,11 @@
 {
   "name" : "ecmsNumberFormat",
-  "version" : "v0.0.1",
+  "version" : "v0.1.0",
   "require" : {
     "components/jquery" : ">=1.9.0"
   },
   "repositories" : [ {
-    "type" : "composer",
-    "url" : "https://packagist.org/"
+    "type": "git",
+    "url": "https://github.com/ecommunities/ecmsNumberFormat"
   } ]
 }
