@@ -8,19 +8,18 @@ GitHub: [http://github.com/ecommunities/ecmsNumberFormat]
 
 This plugin allows you to provide visual validation of a numeric input field (input, number) via addition/removal of classes both during editing, and after leaving the field.  In the standard declaration below, we 
 demonstrate how you can validated against a variety of criteria without impeding a users ability to enter data in their own way, and then force the field to update to the closest valid data upon leaving focus.  Criteria 
-currently include: *min*imum value, *max*imum value, *dec*imal precision, and *inc*rement, but the to-do's include the ability to add additional filters via Regex strings, feel free to lend a hand!
+currently include: **_min_**imum value, **_max_**imum value, **_dec_**imal precision, and **_inc_**rement, but the to-do's include the ability to add additional filters via Regex strings, feel free to lend a hand!
+
+### Configuration Parameters
+- @param float|null **min** *The minimum value to allow*
+- @param float|null **max** *The maximum value to allow*
+- @param int **dec** *The number of decimal places to fix the value to*
+- @param float **inc** *The increment value to match to*
+- @param string **valid** *Class name to be added when value is valid (only while field has focus)*
+- @param string **invalid** *Class name to be added when value is invalid (only while field has focus)*
 
 ### Configuration Examples:
 ```javascript
-/*
-@param float|null min	The minimum value to allow
-@param float|null max	The maximum value to allow
-@param int dec The number of decimal places to fix the value to
-@param float inc The increment value to match to 
-@param string valid Class name to be added when value is valid (only while field has focus)
-@param string invalid Class name to be added when value is invalid (only while field has focus)
-*/
-
 // Defaualt formatting, no decimals, increment by one, no min or max.
 var numOpts = {}					
 
