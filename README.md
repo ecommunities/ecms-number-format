@@ -41,7 +41,7 @@ $('#foo').on('blur', function() { $(this).ecmsNumberFormat(numOpts); }).blur();
 ```
 
 ## TO-DO's
-
+- allow precision to be forced in output (i.e. trailing zeros in html5 number field)
 - add support for more numerical types (i.e. scientific notation)
 - add support for custom match regex queries in addition to standard options
 - add support for helpful error messages
