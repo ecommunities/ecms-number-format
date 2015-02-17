@@ -45,7 +45,21 @@ jQuery.fn.extend({
 			
 			var num = $(this).val().toString();
 			
+			// Prepare defaults, arguments, and see if any data-attributes were set
 			var opt = options;
+			// Override / Utilize parameters set with field specific attributes
+			if ($(this).attr('min')) { opt.min = $(this).attr('min'); }
+			if ($(this).attr('max')) { opt.max = $(this).attr('max'); }
+			if ($(this).attr('step')) { opt.inc = $(this).attr('step'); }
+			// Override / Utilize parameters set with field specific data-attributes
+			if ($(this).data('ecms-min')) { opt.min = $(this).data('ecms-min'); }
+			if ($(this).data('ecms-max')) { opt.max = $(this).data('ecms-max'); }
+			if ($(this).data('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
+			if ($(this).data('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
+			if ($(this).data('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
+			if ($(this).data('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
+			
+			// Prepare the parameter values
 			if (opt.min) { opt.min = parseFloat(opt.min); }
 			if (opt.max) { opt.max = parseFloat(opt.max); }
 			if (isNaN(opt.dec)) { opt.dec = 0; } else { opt.dec = parseFloat(opt.dec); }
@@ -109,7 +123,21 @@ jQuery.fn.extend({
 			var num = parseFloat($(this).val());
 			$(this).val(num);
 			
+			// Prepare defaults, arguments, and see if any data-attributes were set
 			var opt = options;
+			// Override / Utilize parameters set with field specific attributes
+			if ($(this).attr('min')) { opt.min = $(this).attr('min'); }
+			if ($(this).attr('max')) { opt.max = $(this).attr('max'); }
+			if ($(this).attr('step')) { opt.inc = $(this).attr('step'); }
+			// Override / Utilize parameters set with field specific data-attributes
+			if ($(this).data('ecms-min')) { opt.min = $(this).data('ecms-min'); }
+			if ($(this).data('ecms-max')) { opt.max = $(this).data('ecms-max'); }
+			if ($(this).data('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
+			if ($(this).data('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
+			if ($(this).data('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
+			if ($(this).data('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
+			
+			// Prepare the parameter values
 			if (opt.min) { opt.min = parseFloat(opt.min); }
 			if (opt.max) { opt.max = parseFloat(opt.max); }
 			if (isNaN(opt.dec)) { opt.dec = 0; } else { opt.dec = parseFloat(opt.dec); }

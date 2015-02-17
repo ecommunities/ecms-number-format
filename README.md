@@ -19,6 +19,19 @@ to lend a hand!
 - @param string **valid** *Class name to be added when value is valid (only while field has focus)*
 - @param string **invalid** *Class name to be added when value is invalid (only while field has focus)*
 
+##### Alternate Field Attribute Parameters (overrides call time parameters)
+- **min** (input|number)
+- **max** (input|number)
+- **step** (number)
+
+##### Alternate Field Data-Attribute Parameters (override attribute parameters)
+- **data-min**
+- **data-max**
+- **data-dec**
+- **data-inc**
+- **data-valid**
+- **data-invalid**
+
 ### Configuration Examples:
 ```javascript
 // Defaualt formatting, no decimals, increment by one, no min or max.
