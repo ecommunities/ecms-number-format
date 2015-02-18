@@ -22,7 +22,7 @@ var numOpts = { min:1000, max:2000, dec:4, inc:0.0025, valid:'valid-class', inva
 
 Standard Declaration:
 $('#foo').on('keyup paste change', function() { $(this).ecmsNumberValidate(numOpts); });".
-$('#foo').on('blur', function() { $(this).ecmsNumberFormat(numOpts); }).blur();
+$('#foo').on('blur', function() { $(this).ecmsNumberFormat(numOpts); });
 
 */
 
@@ -47,23 +47,35 @@ jQuery.fn.extend({
 			
 			// Prepare defaults, arguments, and see if any data-attributes were set
 			var opt = options;
+			
 			// Override / Utilize parameters set with field specific attributes
-			if ($(this).attr('min')) { opt.min = $(this).attr('min'); }
-			if ($(this).attr('max')) { opt.max = $(this).attr('max'); }
-			if ($(this).attr('step')) { opt.inc = $(this).attr('step'); }
+			if ($(this).attr().hasOwnProperty('min')) { opt.min = $(this).attr('min'); }
+			if ($(this).attr().hasOwnProperty('max')) { opt.max = $(this).attr('max'); }
+			if ($(this).attr().hasOwnProperty('step')) { opt.inc = $(this).attr('step'); }
+			
 			// Override / Utilize parameters set with field specific data-attributes
-			if ($(this).data('ecms-min')) { opt.min = $(this).data('ecms-min'); }
-			if ($(this).data('ecms-max')) { opt.max = $(this).data('ecms-max'); }
-			if ($(this).data('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
-			if ($(this).data('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
-			if ($(this).data('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
-			if ($(this).data('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
+			if ($(this).data().hasOwnProperty('ecms-min')) { opt.min = $(this).data('ecms-min'); }
+			if ($(this).data().hasOwnProperty('ecms-max')) { opt.max = $(this).data('ecms-max'); }
+			if ($(this).data().hasOwnProperty('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
+			if ($(this).data().hasOwnProperty('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
+			if ($(this).data().hasOwnProperty('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
+			if ($(this).data().hasOwnProperty('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
 			
 			// Prepare the parameter values
 			if (opt.min) { opt.min = parseFloat(opt.min); }
 			if (opt.max) { opt.max = parseFloat(opt.max); }
 			if (isNaN(opt.dec)) { opt.dec = 0; } else { opt.dec = parseFloat(opt.dec); }
 			if (isNaN(opt.inc)) { opt.inc = 1; } else { opt.inc = parseFloat(opt.inc); }
+			
+			// Fix dec if not provided (0) and inc is float (#.#...)
+			if (opt.dec == 0 && opt.inc != Math.round(opt.inc)) {
+				var match = opt.inc.toString().match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+				if (match) {
+					opt.dec = Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
+				} else {
+					opt.dec = 0;
+				}
+			}
 			
 			// Eliminate non-numeric components
 			num = parseFloat(num);
@@ -125,23 +137,35 @@ jQuery.fn.extend({
 			
 			// Prepare defaults, arguments, and see if any data-attributes were set
 			var opt = options;
+			
 			// Override / Utilize parameters set with field specific attributes
-			if ($(this).attr('min')) { opt.min = $(this).attr('min'); }
-			if ($(this).attr('max')) { opt.max = $(this).attr('max'); }
-			if ($(this).attr('step')) { opt.inc = $(this).attr('step'); }
+			if ($(this).attr().hasOwnProperty('min')) { opt.min = $(this).attr('min'); }
+			if ($(this).attr().hasOwnProperty('max')) { opt.max = $(this).attr('max'); }
+			if ($(this).attr().hasOwnProperty('step')) { opt.inc = $(this).attr('step'); }
+			
 			// Override / Utilize parameters set with field specific data-attributes
-			if ($(this).data('ecms-min')) { opt.min = $(this).data('ecms-min'); }
-			if ($(this).data('ecms-max')) { opt.max = $(this).data('ecms-max'); }
-			if ($(this).data('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
-			if ($(this).data('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
-			if ($(this).data('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
-			if ($(this).data('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
+			if ($(this).data().hasOwnProperty('ecms-min')) { opt.min = $(this).data('ecms-min'); }
+			if ($(this).data().hasOwnProperty('ecms-max')) { opt.max = $(this).data('ecms-max'); }
+			if ($(this).data().hasOwnProperty('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
+			if ($(this).data().hasOwnProperty('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
+			if ($(this).data().hasOwnProperty('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
+			if ($(this).data().hasOwnProperty('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
 			
 			// Prepare the parameter values
 			if (opt.min) { opt.min = parseFloat(opt.min); }
 			if (opt.max) { opt.max = parseFloat(opt.max); }
 			if (isNaN(opt.dec)) { opt.dec = 0; } else { opt.dec = parseFloat(opt.dec); }
 			if (isNaN(opt.inc)) { opt.inc = 1; } else { opt.inc = parseFloat(opt.inc); }
+			
+			// Fix dec if not provided (0) and inc is float (#.#...)
+			if (opt.dec == 0 && opt.inc != Math.round(opt.inc)) {
+				var match = opt.inc.toString().match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+				if (match) {
+					opt.dec = Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
+				} else {
+					opt.dec = 0;
+				}
+			}
 			
 			// Skip if num is null 
 			if (num == '') { 
