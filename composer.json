@@ -1,6 +1,9 @@
 {
   "name" : "ecommunities/ecms-number-format",
+  "homepage" : "https://github.com/ecommunities/ecms-number-format",
+  "type": "component",
   "description" : "jQuery plugin for input field number formatting and validation",
+  "license" : "MIT",
   "version" : "v0.4.0",
   "require" : {
     "components/jquery" : ">=1.9.0"
@@ -15,7 +18,14 @@
     "homepage" : "http://ecms.io",
     "role" : "Chief Software Architect"
   } ],
-  "type" : "jquery-plugin",
-  "license" : "MIT",
-  "homepage" : "https://github.com/ecommunities/ecms-number-format"
+    "extra": {
+        "component": {
+            "scripts": [
+                "ecms-number-format.js"
+            ],
+            "files": [
+                "ecms-number-format.min.js"
+            ]
+        }
+    }
 }
