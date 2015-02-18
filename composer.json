@@ -1,11 +1,23 @@
 {
-  "name" : "ecmsNumberFormat",
+  "name" : "ecommunities/ecms-number-format",
   "version" : "v0.2.0",
+  "type": "jquery-plugin",
+  "description": "jQuery plugin for input field number formatting and validation",
+  "homepage": "https://github.com/ecommunities/ecms-number-format",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Kevin Farley",
+          "email": "support@ecommunities.ca",
+          "homepage": "http://ecms.io",
+          "role": "Chief Software Architect"
+      }
+  ],
   "require" : {
     "components/jquery" : ">=1.9.0"
   },
   "repositories" : [ {
-    "type": "git",
-    "url": "https://github.com/ecommunities/ecmsNumberFormat.git"
+    "type" : "git",
+    "url" : "https://github.com/ecommunities/ecms-number-format.git"
   } ]
 }
