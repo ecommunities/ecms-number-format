@@ -38,8 +38,12 @@ jQuery.fn.extend({
 				valid: 'valid',
 				invalid: 'invalid'
 		};
-            
-		var options = $.extend(defaults, options);
+        
+		if (typeof options != 'undefined') {
+			var options = $.extend(defaults, options);
+		} else {
+			var options = defaults;
+		}
 		
 		return this.each(function() {
 			
@@ -49,23 +53,23 @@ jQuery.fn.extend({
 			var opt = options;
 			
 			// Override / Utilize parameters set with field specific attributes
-			if ($(this).attr().hasOwnProperty('min')) { opt.min = $(this).attr('min'); }
-			if ($(this).attr().hasOwnProperty('max')) { opt.max = $(this).attr('max'); }
-			if ($(this).attr().hasOwnProperty('step')) { opt.inc = $(this).attr('step'); }
+			if (parseFloat($(this).attr('min'))) { opt.min = $(this).attr('min'); }
+			if (parseFloat($(this).attr('max'))) { opt.max = $(this).attr('max'); }
+			if (parseFloat($(this).attr('step'))) { opt.inc = $(this).attr('step'); }
 			
 			// Override / Utilize parameters set with field specific data-attributes
-			if ($(this).data().hasOwnProperty('ecms-min')) { opt.min = $(this).data('ecms-min'); }
-			if ($(this).data().hasOwnProperty('ecms-max')) { opt.max = $(this).data('ecms-max'); }
-			if ($(this).data().hasOwnProperty('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
-			if ($(this).data().hasOwnProperty('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
-			if ($(this).data().hasOwnProperty('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
-			if ($(this).data().hasOwnProperty('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
+			if (parseFloat($(this).data('ecms-min'))) { opt.min = $(this).data('ecms-min'); }
+			if (parseFloat($(this).data('ecms-max'))) { opt.max = $(this).data('ecms-max'); }
+			if (parseFloat($(this).data('ecms-dec'))) { opt.dec = $(this).data('ecms-dec'); }
+			if (parseFloat($(this).data('ecms-inc'))) { opt.inc = $(this).data('ecms-inc'); }
+			if ($(this).data('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
+			if ($(this).data('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
 			
 			// Prepare the parameter values
 			if (opt.min) { opt.min = parseFloat(opt.min); }
 			if (opt.max) { opt.max = parseFloat(opt.max); }
-			if (isNaN(opt.dec)) { opt.dec = 0; } else { opt.dec = parseFloat(opt.dec); }
-			if (isNaN(opt.inc)) { opt.inc = 1; } else { opt.inc = parseFloat(opt.inc); }
+			if (!isNaN(opt.dec)) { opt.dec = parseFloat(opt.dec); }
+			if (!isNaN(opt.inc)) { opt.inc = parseFloat(opt.inc); }
 			
 			// Fix dec if not provided (0) and inc is float (#.#...)
 			if (opt.dec == 0 && opt.inc != Math.round(opt.inc)) {
@@ -89,13 +93,11 @@ jQuery.fn.extend({
 			// Prepare num for numeric operations now
 			num = parseFloat(num);
 			
-			// Make sure the number is equal to the required increment
-			if (opt.inc != 1) { 
-				if (num != (Math.round(num * (1/opt.inc)) / (1/opt.inc))) {
-					$(this).removeClass(opt.valid).addClass(opt.invalid);
-					return null;
-				} 
-			}
+			// Make sure the number is equal to the required increment, and no more precision than allowed
+			if (num != (Math.round(num * (1/opt.inc)) / (1/opt.inc))) {
+				$(this).removeClass(opt.valid).addClass(opt.invalid);
+				return null;
+			} 
 			
 			// Check min/max
 			if (opt.min != null && num < opt.min) {
@@ -127,7 +129,11 @@ jQuery.fn.extend({
 				invalid: 'invalid'
 		};
             
-		var options = $.extend(defaults, options);
+		if (typeof options != 'undefined') {
+			var options = $.extend(defaults, options);
+		} else {
+			var options = defaults;
+		}
 		
 		return this.each(function() {
 			
@@ -139,23 +145,23 @@ jQuery.fn.extend({
 			var opt = options;
 			
 			// Override / Utilize parameters set with field specific attributes
-			if ($(this).attr().hasOwnProperty('min')) { opt.min = $(this).attr('min'); }
-			if ($(this).attr().hasOwnProperty('max')) { opt.max = $(this).attr('max'); }
-			if ($(this).attr().hasOwnProperty('step')) { opt.inc = $(this).attr('step'); }
+			if (parseFloat($(this).attr('min'))) { opt.min = $(this).attr('min'); }
+			if (parseFloat($(this).attr('max'))) { opt.max = $(this).attr('max'); }
+			if (parseFloat($(this).attr('step'))) { opt.inc = $(this).attr('step'); }
 			
 			// Override / Utilize parameters set with field specific data-attributes
-			if ($(this).data().hasOwnProperty('ecms-min')) { opt.min = $(this).data('ecms-min'); }
-			if ($(this).data().hasOwnProperty('ecms-max')) { opt.max = $(this).data('ecms-max'); }
-			if ($(this).data().hasOwnProperty('ecms-dec')) { opt.dec = $(this).data('ecms-dec'); }
-			if ($(this).data().hasOwnProperty('ecms-inc')) { opt.inc = $(this).data('ecms-inc'); }
-			if ($(this).data().hasOwnProperty('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
-			if ($(this).data().hasOwnProperty('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
+			if (parseFloat($(this).data('ecms-min'))) { opt.min = $(this).data('ecms-min'); }
+			if (parseFloat($(this).data('ecms-max'))) { opt.max = $(this).data('ecms-max'); }
+			if (parseFloat($(this).data('ecms-dec'))) { opt.dec = $(this).data('ecms-dec'); }
+			if (parseFloat($(this).data('ecms-inc'))) { opt.inc = $(this).data('ecms-inc'); }
+			if ($(this).data('ecms-valid')) { opt.valid = $(this).data('ecms-valid'); }
+			if ($(this).data('ecms-invalid')) { opt.invalid = $(this).data('ecms-invalid'); }
 			
 			// Prepare the parameter values
 			if (opt.min) { opt.min = parseFloat(opt.min); }
 			if (opt.max) { opt.max = parseFloat(opt.max); }
-			if (isNaN(opt.dec)) { opt.dec = 0; } else { opt.dec = parseFloat(opt.dec); }
-			if (isNaN(opt.inc)) { opt.inc = 1; } else { opt.inc = parseFloat(opt.inc); }
+			if (!isNaN(opt.dec)) { opt.dec = parseFloat(opt.dec); }
+			if (!isNaN(opt.inc)) { opt.inc = parseFloat(opt.inc); }
 			
 			// Fix dec if not provided (0) and inc is float (#.#...)
 			if (opt.dec == 0 && opt.inc != Math.round(opt.inc)) {
@@ -173,8 +179,8 @@ jQuery.fn.extend({
 				return null;
 			}
 			
-			// Make sure the number is equal to the required increment
-			if (opt.inc != 1) { num = (Math.round(num * (1/opt.inc)) / (1/opt.inc)); }
+			// Make sure the number is equal to the required increment, and no more precision than allowed
+			num = (Math.round(num * (1/opt.inc)) / (1/opt.inc));
 			
 			// Fix precision
 			num = num.toFixed(opt.dec);
